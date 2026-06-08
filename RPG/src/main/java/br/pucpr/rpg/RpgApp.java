@@ -16,7 +16,7 @@ public class RpgApp extends Application {
         Scene scene = new Scene(tela, 800, 600);
 
         stage.setScene(scene);
-        stage.setTitle("RPG Manager");
+        stage.setTitle("RPG");
         stage.show();
     }
 }

@@ -44,9 +44,10 @@ public class TelaPersonagem extends VBox {
         Button btnEditar = new Button("Editar");
         Button btnExcluir = new Button("Excluir");
         Button btnLimpar = new Button("Limpar");
+        Button btnAtualizar = new Button("Atualizar");
 
         TableView<Personagem> tabela = new TableView<>();
-        tabela.setItems(controller.listar());
+        atualizarTabela(tabela);
 
         TableColumn<Personagem, Number> colId = new TableColumn<>("ID");
         colId.setCellValueFactory(data ->
@@ -95,6 +96,7 @@ public class TelaPersonagem extends VBox {
             personagem.setMana(Integer.parseInt(txtMana.getText()));
 
             controller.cadastrar(personagem);
+            atualizarTabela(tabela);
 
             txtNome.clear();
             txtNivel.clear();
@@ -113,12 +115,13 @@ public class TelaPersonagem extends VBox {
                     Integer.parseInt(txtMana.getText())
             );
 
-            tabela.refresh();
+            atualizarTabela(tabela);
         });
 
         btnExcluir.setOnAction(event -> {
             Personagem selecionado = tabela.getSelectionModel().getSelectedItem();
             controller.excluir(selecionado);
+            atualizarTabela(tabela);
         });
 
         btnLimpar.setOnAction(event -> {
@@ -129,7 +132,9 @@ public class TelaPersonagem extends VBox {
             tabela.getSelectionModel().clearSelection();
         });
 
-        HBox botoes = new HBox(10, btnCadastrar, btnEditar, btnExcluir, btnLimpar);
+        btnAtualizar.setOnAction(event -> atualizarTabela(tabela));
+
+        HBox botoes = new HBox(10, btnCadastrar, btnEditar, btnExcluir, btnLimpar, btnAtualizar);
 
         getChildren().addAll(
                 titulo,
@@ -140,5 +145,9 @@ public class TelaPersonagem extends VBox {
                 botoes,
                 tabela
         );
+    }
+
+    private void atualizarTabela(TableView<Personagem> tabela) {
+        tabela.getItems().setAll(controller.listar());
     }
 }
