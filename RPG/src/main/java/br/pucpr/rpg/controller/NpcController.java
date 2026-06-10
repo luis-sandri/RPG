@@ -1,4 +1,10 @@
 package br.pucpr.rpg.controller;
 
-public class NpcController {
+import br.pucpr.rpg.model.Npc;
+
+public class NpcController extends CrudController<Npc> {
+
+    public NpcController() {
+        super("npcs.obj");
+    }
 }

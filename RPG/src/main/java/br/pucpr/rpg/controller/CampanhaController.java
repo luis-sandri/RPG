@@ -1,4 +1,10 @@
 package br.pucpr.rpg.controller;
 
-public class CampanhaController {
+import br.pucpr.rpg.model.Campanha;
+
+public class CampanhaController extends CrudController<Campanha> {
+
+    public CampanhaController() {
+        super("campanhas.obj");
+    }
 }

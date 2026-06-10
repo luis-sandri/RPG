@@ -1,4 +1,10 @@
 package br.pucpr.rpg.controller;
 
-public class RacaController {
+import br.pucpr.rpg.model.Raca;
+
+public class RacaController extends CrudController<Raca> {
+
+    public RacaController() {
+        super("racas.obj");
+    }
 }

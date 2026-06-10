@@ -1,9 +1,8 @@
 package br.pucpr.rpg.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Personagem implements Serializable {
+public class Personagem implements Entidade {
     private static final long serialVersionUID = 1L;
 
     private int id;

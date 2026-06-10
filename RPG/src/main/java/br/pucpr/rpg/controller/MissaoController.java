@@ -1,4 +1,10 @@
 package br.pucpr.rpg.controller;
 
-public class MissaoController {
+import br.pucpr.rpg.model.Missao;
+
+public class MissaoController extends CrudController<Missao> {
+
+    public MissaoController() {
+        super("missoes.obj");
+    }
 }

@@ -1,4 +1,10 @@
 package br.pucpr.rpg.controller;
 
-public class JogadorController {
+import br.pucpr.rpg.model.Jogador;
+
+public class JogadorController extends CrudController<Jogador> {
+
+    public JogadorController() {
+        super("jogadores.obj");
+    }
 }
