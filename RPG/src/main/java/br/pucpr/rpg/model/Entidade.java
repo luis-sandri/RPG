@@ -2,9 +2,12 @@ package br.pucpr.rpg.model;
 
 import java.io.Serializable;
 
-public interface Entidade extends Serializable {
-
-    int getId();
-
-    void setId(int id);
+public abstract class Entidade implements Serializable {
+    private int id;
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
 }

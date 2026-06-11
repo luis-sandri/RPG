@@ -65,7 +65,6 @@ public class CrudController<T extends Entidade> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private ArrayList<T> lerLista() {
         try (ObjectInputStream leitor = new ObjectInputStream(new FileInputStream(arquivo))) {
             return (ArrayList<T>) leitor.readObject();

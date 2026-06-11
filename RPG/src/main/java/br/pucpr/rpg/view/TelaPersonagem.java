@@ -1,6 +1,7 @@
 package br.pucpr.rpg.view;
 
 import br.pucpr.rpg.controller.PersonagemController;
+import br.pucpr.rpg.model.Entidade;
 import br.pucpr.rpg.model.Personagem;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

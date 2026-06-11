@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                br.pucpr.exemplo8_domaincontroller/br.pucpr.exemplo8_domaincontroller.HelloApplication
+                                br.pucpr.rpg/br.pucpr.rpg.Programa
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

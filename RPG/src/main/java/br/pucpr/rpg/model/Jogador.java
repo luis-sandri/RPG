@@ -2,22 +2,11 @@ package br.pucpr.rpg.model;
 
 import java.util.ArrayList;
 
-public class Jogador implements Entidade {
-    private static final long serialVersionUID = 1L;
-
-    private int id;
+public class Jogador extends Entidade {
     private String nome;
     private String apelido;
     private String email;
     private ArrayList<Personagem> personagens = new ArrayList<>();
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
