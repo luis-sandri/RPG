@@ -81,15 +81,14 @@ public class RpgApp extends Application {
          * layoutPrincipal.setCenter(new TelaRaca(racaController));
          * });
          * 
-         * btnMissoes.setOnAction(event -> {
-         * layoutPrincipal.setCenter(new TelaMissao(missaoController));
-         * });
-         * 
          * btnNpcs.setOnAction(event -> {
          * layoutPrincipal.setCenter(new TelaNpc(npcController));
          * });
          */
-        
+        btnMissoes.setOnAction(event -> {
+            layoutPrincipal.setCenter(new TelaMissao(missaoController));
+        });
+
         btnItens.setOnAction(event -> {
             layoutPrincipal.setCenter(new TelaItem(itemController));
         });
@@ -100,7 +99,6 @@ public class RpgApp extends Application {
         layoutPrincipal.setCenter(new TelaPersonagem(personagemController));
 
         Scene scene = new Scene(layoutPrincipal, 900, 600);
-
 
         stage.setScene(scene);
         stage.setTitle("RPG Manager");
