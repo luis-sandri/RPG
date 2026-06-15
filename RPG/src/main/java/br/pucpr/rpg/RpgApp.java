@@ -81,10 +81,12 @@ public class RpgApp extends Application {
          * layoutPrincipal.setCenter(new TelaRaca(racaController));
          * });
          * 
-         * btnNpcs.setOnAction(event -> {
-         * layoutPrincipal.setCenter(new TelaNpc(npcController));
-         * });
+         *
          */
+        btnNpcs.setOnAction(event -> {
+          layoutPrincipal.setCenter(new TelaNpc(npcController));
+          });
+
         btnMissoes.setOnAction(event -> {
             layoutPrincipal.setCenter(new TelaMissao(missaoController));
         });
