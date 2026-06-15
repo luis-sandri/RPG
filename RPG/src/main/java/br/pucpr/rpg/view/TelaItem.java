@@ -105,8 +105,8 @@ public class TelaItem extends VBox {
         TableColumn<Item, String> colRaridade = new TableColumn<Item, String>("Raridade");
         colRaridade.setCellValueFactory(new PropertyValueFactory<Item, String>("raridade"));
 
-        TableColumn<Item, Integer> colValor = new TableColumn<Item, Integer>("Valor");
-        colValor.setCellValueFactory(new PropertyValueFactory<Item, Integer>("valor"));
+        TableColumn<Item, Float> colValor = new TableColumn<Item, Float>("Valor");
+        colValor.setCellValueFactory(new PropertyValueFactory<Item, Float>("valor"));
 
         tabela.getColumns().addAll(colId, colNome, colTipo, colRaridade, colValor);
     }
@@ -160,7 +160,7 @@ public class TelaItem extends VBox {
         item.setRaridade(txtRaridade.getText());
 
         try {
-            item.setValor(Integer.parseInt(txtValor.getText()));
+            item.setValor(Float.parseFloat(txtValor.getText()));
         } catch (NumberFormatException e) {
             item.setValor(0);
         }

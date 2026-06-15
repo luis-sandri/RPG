@@ -4,7 +4,7 @@ public class Item extends Entidade {
     private String nome;
     private String tipo;
     private String raridade;
-    private int valor;
+    private float valor;
 
     public String getNome() {
         return nome;
@@ -30,11 +30,11 @@ public class Item extends Entidade {
         this.raridade = raridade;
     }
 
-    public int getValor() {
+    public float getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(float valor) {
         this.valor = valor;
     }
 }
