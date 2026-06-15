@@ -1,8 +1,10 @@
 package br.pucpr.rpg.view;
 
 import br.pucpr.rpg.controller.PersonagemController;
-import br.pucpr.rpg.model.Entidade;
+import br.pucpr.rpg.model.Item;
 import br.pucpr.rpg.model.Personagem;
+import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -19,6 +21,7 @@ public class TelaPersonagem extends VBox {
     private TextField txtNivel;
     private TextField txtVida;
     private TextField txtMana;
+    private TextField txtItens;
     private TableView<Personagem> tabela;
 
     public TelaPersonagem(PersonagemController controller) {
@@ -54,6 +57,7 @@ public class TelaPersonagem extends VBox {
                 txtNivel,
                 txtVida,
                 txtMana,
+                txtItens,
                 botoes,
                 tabela
         );
@@ -90,6 +94,9 @@ public class TelaPersonagem extends VBox {
 
         txtMana = new TextField();
         txtMana.setPromptText("Mana");
+
+        txtItens = new TextField();
+        txtItens.setPromptText("Itens");
     }
 
     private void configurarTabela() {
@@ -108,7 +115,11 @@ public class TelaPersonagem extends VBox {
         TableColumn<Personagem, Integer> colMana = new TableColumn<Personagem, Integer>("Mana");
         colMana.setCellValueFactory(new PropertyValueFactory<Personagem, Integer>("mana"));
 
-        tabela.getColumns().addAll(colId, colNome, colNivel, colVida, colMana);
+        TableColumn<Personagem, String> colItens = new TableColumn<Personagem, String>("Itens");
+        colItens.setCellValueFactory(cellData ->
+                new SimpleStringProperty(formatarItens(cellData.getValue().getItens())));
+
+        tabela.getColumns().addAll(colId, colNome, colNivel, colVida, colMana, colItens);
     }
 
     private void configurarSelecaoTabela() {
@@ -158,6 +169,7 @@ public class TelaPersonagem extends VBox {
         personagem.setNivel(Integer.parseInt(txtNivel.getText()));
         personagem.setVida(Integer.parseInt(txtVida.getText()));
         personagem.setMana(Integer.parseInt(txtMana.getText()));
+        personagem.setItens(criarItensDoTexto(txtItens.getText()));
 
         return personagem;
     }
@@ -167,6 +179,7 @@ public class TelaPersonagem extends VBox {
         txtNivel.setText(String.valueOf(personagem.getNivel()));
         txtVida.setText(String.valueOf(personagem.getVida()));
         txtMana.setText(String.valueOf(personagem.getMana()));
+        txtItens.setText(formatarItens(personagem.getItens()));
     }
 
     private void limparFormulario() {
@@ -174,10 +187,55 @@ public class TelaPersonagem extends VBox {
         txtNivel.clear();
         txtVida.clear();
         txtMana.clear();
+        txtItens.clear();
         tabela.getSelectionModel().clearSelection();
     }
 
     private void atualizarTabela() {
         tabela.getItems().setAll(controller.listar());
+    }
+
+    private ArrayList<Item> criarItensDoTexto(String texto) {
+        ArrayList<Item> itens = new ArrayList<Item>();
+
+        if (texto == null || texto.trim().isEmpty()) {
+            return itens;
+        }
+
+        String[] nomes = texto.split(",");
+
+        for (int i = 0; i < nomes.length; i++) {
+            String nome = nomes[i].trim();
+
+            if (!nome.isEmpty()) {
+                Item item = new Item();
+                item.setNome(nome);
+                itens.add(item);
+            }
+        }
+
+        return itens;
+    }
+
+    private String formatarItens(ArrayList<Item> itens) {
+        if (itens == null || itens.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder texto = new StringBuilder();
+
+        for (int i = 0; i < itens.size(); i++) {
+            Item item = itens.get(i);
+
+            if (item != null && item.getNome() != null && !item.getNome().trim().isEmpty()) {
+                if (texto.length() > 0) {
+                    texto.append(", ");
+                }
+
+                texto.append(item.getNome());
+            }
+        }
+
+        return texto.toString();
     }
 }

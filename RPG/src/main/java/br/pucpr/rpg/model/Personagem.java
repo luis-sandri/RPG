@@ -45,23 +45,7 @@ public class Personagem extends Entidade {
         return itens;
     }
 
-    public void subirNivel() {
-        nivel++;
-    }
-
-    public void receberDano(int dano) {
-        vida -= dano;
-    }
-
-    public void curarVida(int cura) {
-        vida += cura;
-    }
-
-    public void adicionarItem(Item item) {
-        itens.add(item);
-    }
-
-    public void removerItem(Item item) {
-        itens.remove(item);
+    public void setItens(ArrayList<Item> itens) {
+        this.itens = itens;
     }
 }
