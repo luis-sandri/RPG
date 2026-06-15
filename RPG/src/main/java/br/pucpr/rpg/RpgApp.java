@@ -1,8 +1,10 @@
 package br.pucpr.rpg;
 
 import br.pucpr.rpg.controller.MissaoController;
+import br.pucpr.rpg.controller.NpcController;
 import br.pucpr.rpg.controller.PersonagemController;
 import br.pucpr.rpg.view.TelaMissao;
+import br.pucpr.rpg.view.TelaNpc;
 import br.pucpr.rpg.view.TelaPersonagem;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -17,6 +19,9 @@ public class RpgApp extends Application {
 
         MissaoController controllerM = new MissaoController();
         TelaMissao telaMissao = new TelaMissao(controllerM);
+
+        NpcController controllerNpc = new NpcController();
+        TelaNpc telaNpc = new TelaNpc(controllerNpc);
 
         Scene scene = new Scene(tela, 800, 600);
 
