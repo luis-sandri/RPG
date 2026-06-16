@@ -36,11 +36,7 @@ public class Jogador extends Entidade {
         return personagens;
     }
 
-    public void adicionarPersonagem(Personagem personagem) {
-        personagens.add(personagem);
-    }
-
-    public void removerPersonagem(Personagem personagem) {
-        personagens.remove(personagem);
+    public void setPersonagens(ArrayList<Personagem> personagens) {
+        this.personagens = personagens;
     }
 }

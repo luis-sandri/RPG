@@ -68,11 +68,10 @@ public class RpgApp extends Application {
         btnPersonagens.setOnAction(event -> {
             layoutPrincipal.setCenter(new TelaPersonagem(personagemController));
         });
+        btnJogadores.setOnAction(event -> {
+            layoutPrincipal.setCenter(new TelaJogador(jogadorController));
+        });
         /*
-         * btnJogadores.setOnAction(event -> {
-         * layoutPrincipal.setCenter(new TelaJogador(jogadorController));
-         * });
-         * 
          * btnClasses.setOnAction(event -> {
          * layoutPrincipal.setCenter(new TelaClasseRpg(classeRpgController));
          * });
